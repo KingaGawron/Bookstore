@@ -17,7 +17,7 @@ const BooksSchema = new Schema({
     numberOfPages: Number
 })
 const PublishingHousessSchema = new Schema({
-    
+    id:Number,
     name: String,
     descrioption: String
 })
@@ -41,6 +41,17 @@ async function addAuthor(id, name, bio){
 
 async function showAuthors() {
     return await authors.find({});
+}
+async function addPublishingHouses(id, name, bio){
+    const publishingHouse = new publishingHouses();
+    publishingHouse.id = id
+    publishingHouse.name = name
+    publishingHouse.descrioption = descrioption
+    await publishingHouse.save();
+}
+
+async function showPublishingHouses() {
+    return await publishingHouses.find({});
 }
 async function addBook({
     id, 
@@ -78,6 +89,9 @@ module.exports = {
     addAuthor,
     showAuthors,
     addBook,
-    showBooks
+    showBooks,
+    addPublishingHouses,
+    showPublishingHouses
+
 
 }
