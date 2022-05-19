@@ -1,0 +1,23 @@
+
+<table>
+    <thead>
+        <th>
+            Lp
+        </th>
+        <th>
+            name
+        </th>
+        <th>
+            description
+        </th>
+    </thead>
+    <tbody>
+        <% allPublishingHouses.forEach(function(publishingHouse){ %>
+            <tr>
+            <td>id: <%= publishingHouse.id %></td>
+            <td>name: <%= publishingHouse.name %></td>
+            <td>description: <%= publishingHouse.description %></td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>

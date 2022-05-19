@@ -10,16 +10,15 @@ const BooksSchema = new Schema({
     authorId:Number,
     publishingHousesId:Number,
     name: String,
-    descrioption: String,
+    description: String,
     price: String,
     releaseDate: String,
     bookCategory: String,
     numberOfPages: Number
 })
 const PublishingHousessSchema = new Schema({
-    id:Number,
     name: String,
-    descrioption: String
+    description: String
 })
 const authors = model('Authors',AuthorsSchema);
 const books = model('Books',BooksSchema);
@@ -39,18 +38,17 @@ async function addAuthor(id, name, bio){
     await author.save();
 }
 
-async function showAuthors() {
+async function getAuthors() {
     return await authors.find({});
 }
-async function addPublishingHouses(id, name, bio){
+async function addPublishingHouses({name, description}){
     const publishingHouse = new publishingHouses();
-    publishingHouse.id = id
     publishingHouse.name = name
-    publishingHouse.descrioption = descrioption
+    publishingHouse.description = description
     await publishingHouse.save();
 }
 
-async function showPublishingHouses() {
+async function getPublishingHouses() {
     return await publishingHouses.find({});
 }
 async function addBook({
@@ -58,7 +56,7 @@ async function addBook({
     authorId, 
     publishingHousesId, 
     name, 
-    descrioption, 
+    description, 
     price, 
     releaseDate, 
     bookCategory, 
@@ -71,7 +69,7 @@ async function addBook({
         authorId, 
         publishingHousesId, 
         name, 
-        descrioption, 
+        description, 
         price, 
         releaseDate, 
         bookCategory, 
@@ -81,17 +79,17 @@ async function addBook({
     await book.save();
 }
 
-async function showBooks() {
+async function getBooks() {
     return await books.find({});
 }
 
 module.exports = {
     addAuthor,
-    showAuthors,
+    getAuthors,
     addBook,
-    showBooks,
+    getBooks,
     addPublishingHouses,
-    showPublishingHouses
+    getPublishingHouses
 
 
 }
