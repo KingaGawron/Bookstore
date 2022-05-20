@@ -1,22 +1,17 @@
-
 <table>
     <thead>
         <th>
-            Lp
+            Name
         </th>
         <th>
-            name
-        </th>
-        <th>
-            description
+            Description
         </th>
     </thead>
     <tbody>
         <% allPublishingHouses.forEach(function(publishingHouse){ %>
-            <tr>
-            <td>id: <%= publishingHouse.id %></td>
-            <td>name: <%= publishingHouse.name %></td>
-            <td>description: <%= publishingHouse.description %></td>
+        <tr>
+            <td> <%= publishingHouse.name %></td>
+            <td> <%= publishingHouse.description %></td>
         </tr>
         <% }); %>
     </tbody>

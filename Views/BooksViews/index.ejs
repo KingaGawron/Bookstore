@@ -1,0 +1,35 @@
+<table>
+    <thead>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Release Date
+        </th>
+        <th>
+            Book Category
+        </th>
+        <th>
+            Number Of Pages
+        </th>
+    </thead>
+    <tbody>
+        <% allBooks.forEach(function(book){ %>
+        <tr>
+            <td> <%= book.name %></td>
+            <td> <%= book.description %></td>
+            <td> <%= book.price %></td>
+            <td> <%= book.releaseDate %></td>
+            <td> <%= book.bookCategory %></td>
+            <td> <%= book.numberOfPages %></td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
+ 
