@@ -13,13 +13,13 @@ const BooksSchema = new Schema({
     bookCategory: String,
     numberOfPages: Number
 })
-const PublishingHousessSchema = new Schema({
+const PublishingHousesSchema = new Schema({
     name: String,
     description: String
 })
 const authors = model('Authors',AuthorsSchema);
 const books = model('Books',BooksSchema);
-const publishingHouses = model('PublishingHouses',PublishingHousessSchema);
+const publishingHouses = model('PublishingHouses',PublishingHousesSchema);
 
 main().catch(err => console.log(err));
 async function main()
@@ -42,6 +42,14 @@ async function getAuthor({authorId}) {
     
     return await authors.findOne({_id: authorId});
 } 
+async function updateAuthor({authorId},update) {
+    
+    return await authors.findOneAndUpdate({_id: authorId},update);
+} 
+async function deleteAuthor({authorId}) {
+    
+    return await authors.findOneAndDelete({_id: authorId});
+} 
 async function addPublishingHouses({name, description}){
     const publishingHouse = new publishingHouses();
     publishingHouse.name = name
@@ -52,6 +60,18 @@ async function addPublishingHouses({name, description}){
 async function getPublishingHouses() {
     return await publishingHouses.find({});
 }
+async function getPublishingHouse({publishinghouseId}) {
+    
+    return await publishingHouses.findOne({_id: publishinghouseId});
+} 
+async function updatePublishingHouse({publishinghouseId},update) {
+    
+    return await publishingHouses.findOneAndUpdate({_id: publishinghouseId},update);
+} 
+async function deletePublishingHouse({publishinghouseId}) {
+    
+    return await publishingHouses.findOneAndDelete({_id: publishinghouseId});
+} 
 async function addBooks({
     name, 
     description, 
@@ -73,17 +93,36 @@ async function addBooks({
 async function getBooks() {
     return await books.find({});
 }
-
+async function getBook({bookId}) {
+    
+    return await books.findOne({_id: bookId});
+} 
+async function updateBook({bookId},update) {
+    
+    return await books.findOneAndUpdate({_id: bookId},update);
+} 
+async function deleteBook({bookId}) {
+    
+    return await books.findOneAndDelete({_id: bookId});
+} 
 module.exports = {
     addAuthors,
     getAuthors,
     getAuthor,
+    updateAuthor,
+    deleteAuthor,
 
     addBooks,
     getBooks,
+    getBook,
+    updateBook,
+    deleteBook,
 
     addPublishingHouses,
-    getPublishingHouses
+    getPublishingHouses,
+    getPublishingHouse,
+    updatePublishingHouse,
+    deletePublishingHouse
 
 
 }

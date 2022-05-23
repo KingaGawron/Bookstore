@@ -1,3 +1,5 @@
+<a href="/authors/add">Add</a>
+
 <table>
     <thead>
         <th>
@@ -5,6 +7,9 @@
         </th>
         <th>
             Bio
+        </th>
+        <th>
+            Actions
         </th>
         <th>
             Actions
@@ -18,9 +23,16 @@
             <td>
                 <button onclick="location.href='/authors/<%=author._id %>/edit'" Id="<%= author._id %>">Edit</button>
             </td>
+            <td>
+                <form action="/authors/<%= author._id %>/delete" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+
+            </td>
             
         </tr>
         <% }); %>
+
     </tbody>
 </table>
  

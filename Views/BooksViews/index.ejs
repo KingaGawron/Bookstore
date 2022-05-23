@@ -28,6 +28,14 @@
             <td> <%= book.releaseDate %></td>
             <td> <%= book.bookCategory %></td>
             <td> <%= book.numberOfPages %></td>
+            <td>
+            <button onclick="location.href='/books/<%=book._id %>/edit'" Id="<%= book._id %>">Edit</button>
+             </td>
+             <td>
+                <form action="/books/<%= book._id %>/delete" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
         </tr>
         <% }); %>
     </tbody>
